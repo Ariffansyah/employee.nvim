@@ -51,3 +51,12 @@ end, { desc = "Show diagnostic error details" })
 
 -- Show all diagnostics in location list
 vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Show all diagnostics in location list" })
+
+vim.diagnostic.config({
+  virtual_text = false,  -- Disable inline error text
+  virtual_lines = false, -- If you have lsp_lines
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
