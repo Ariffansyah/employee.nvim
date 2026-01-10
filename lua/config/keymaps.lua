@@ -6,3 +6,6 @@ vim.keymap.set("i", "<C-BS>", "<C-w>", { desc = "Delete previous word in insert 
 
 -- COPILOT KEYMAP
 vim.api.nvim_set_keymap('i', '<C-j>', 'copilot#Accept("<CR>")', { expr = true, silent = true, noremap = true })
+
+-- Show notification history
+vim.keymap.set("n", "<leader>nh", "<cmd>Noice history<cr>", { desc = "Show notification history" })

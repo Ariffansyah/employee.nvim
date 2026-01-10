@@ -27,10 +27,37 @@ return {
     event = "LspAttach",
     config = function()
       require("lsp_lines").setup()
-      vim.diagnostic.config({ virtual_text = false })
+
+      -- Configure diagnostics with more detail
+      vim.diagnostic.config({
+        virtual_text = false,
+        virtual_lines = {
+          only_current_line = false, -- Show errors for all lines
+          highlight_whole_line = true
+        },
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+      })
     end,
     keys = {
-      { "<leader>l", function() require("lsp_lines").toggle() end, desc = "Toggle LSP Lines" },
+      {
+        "<leader>l",
+        function() require("lsp_lines").toggle() end,
+        desc = "Toggle LSP Lines"
+      },
+      {
+        "<leader>de",
+        function()
+          vim.diagnostic.open_float(nil, {
+            scope = "cursor",
+            border = "rounded",
+            source = "always",
+          })
+        end,
+        desc = "Show diagnostic details"
+      },
     },
   },
 
@@ -91,9 +118,27 @@ return {
           ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = true,
         },
+        -- Add this to show more detailed messages
+        message = {
+          enabled = true,
+          view = "notify",
+          opts = {},
+        },
+        progress = {
+          enabled = true,
+          view = "mini",
+        },
       },
       presets = {
         long_message_to_split = true,
+        lsp_doc_border = true, -- Add border to LSP docs
+      },
+      -- Show error messages with more detail
+      routes = {
+        {
+          filter = { event = "msg_show", kind = "error" },
+          opts = { skip = false },
+        },
       },
     },
     dependencies = {
@@ -101,7 +146,6 @@ return {
       "rcarriga/nvim-notify",
     },
   },
-
   -- Discord Presence
   {
     "andweeb/presence.nvim",
