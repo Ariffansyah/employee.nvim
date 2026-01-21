@@ -32,8 +32,8 @@ return {
       vim.diagnostic.config({
         virtual_text = false,
         virtual_lines = {
-          only_current_line = false, -- Show errors for all lines
-          highlight_whole_line = true
+          only_current_line = true, -- Change this to true to avoid out of range errors
+          highlight_whole_line = false, -- Change this to false
         },
         signs = true,
         underline = true,
@@ -44,8 +44,10 @@ return {
     keys = {
       {
         "<leader>l",
-        function() require("lsp_lines").toggle() end,
-        desc = "Toggle LSP Lines"
+        function()
+          require("lsp_lines").toggle()
+        end,
+        desc = "Toggle LSP Lines",
       },
       {
         "<leader>de",
@@ -56,7 +58,7 @@ return {
             source = "always",
           })
         end,
-        desc = "Show diagnostic details"
+        desc = "Show diagnostic details",
       },
     },
   },
