@@ -6,7 +6,7 @@ return {
       popup = {
         size = {
           height = "80%",
-          width = "20%",
+          width = "80%",
         },
         position = "50%",
       },
@@ -41,7 +41,7 @@ return {
       renderers = {
         file = {
           { "icon" },
-          { "name",      use_git_status_colors = true },
+          { "name", use_git_status_colors = true },
           { "git_status" },
           { "file_size" },
         },
