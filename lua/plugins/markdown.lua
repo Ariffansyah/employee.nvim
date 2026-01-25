@@ -1,6 +1,7 @@
 return {
   {
     "iamcco/markdown-preview.nvim",
+    enabled = false,
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && npm install",
     init = function()
@@ -70,7 +71,7 @@ return {
     },
     config = function()
       require("glow").setup({
-        glow_path = vim.fn.exepath("glow"),               -- will be filled automatically if glow is in $PATH
+        glow_path = vim.fn.exepath("glow"), -- will be filled automatically if glow is in $PATH
         install_path = vim.fn.stdpath("data") .. "/glow", -- default path for installing glow binary
         border = "rounded",
         style = "dark",
@@ -86,6 +87,7 @@ return {
   -- Peek:  markdown preview in split
   {
     "toppair/peek.nvim",
+    enabled = false,
     event = "VeryLazy",
     build = "deno task --quiet build:fast",
     keys = {

@@ -4,6 +4,7 @@ return {
   -- Silicon screenshots
   {
     "michaelrommel/nvim-silicon",
+    enabled = false,
     cmd = "Silicon",
     keys = {
       { "<leader>sc", mode = "v", desc = "Silicon: Copy to clipboard" },

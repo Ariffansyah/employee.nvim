@@ -2,6 +2,7 @@ return {
   -- Image rendering in Neovim
   {
     "3rd/image.nvim",
+    enabled = false,
     event = "VeryLazy",
     dependencies = {
       "kiyoon/magick.nvim",
@@ -27,9 +28,9 @@ return {
       },
       max_width = nil,
       max_height = nil,
-      max_width_window_percentage = 80,       -- Limit to 80% of window width
-      max_height_window_percentage = 60,      -- Limit to 60% of window height
-      window_overlap_clear_enabled = true,    -- Enable clearing on overlap
+      max_width_window_percentage = 80, -- Limit to 80% of window width
+      max_height_window_percentage = 60, -- Limit to 60% of window height
+      window_overlap_clear_enabled = true, -- Enable clearing on overlap
       window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "neo-tree", "NvimTree", "" },
       editor_only_render_when_focused = true, -- Only render in focused window
       tmux_show_only_in_active_window = true, -- If using tmux
@@ -67,6 +68,7 @@ return {
   -- Image paste support
   {
     "HakonHarnes/img-clip.nvim",
+    enabled = false,
     event = "BufEnter",
     opts = {
       default = {
