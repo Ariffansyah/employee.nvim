@@ -2,6 +2,7 @@ return {
   -- GitHub Copilot
   {
     "github/copilot.vim",
+    cmd = "Copilot",
     event = "InsertEnter",
     config = function()
       -- Disable Copilot's default <Tab> mapping
@@ -20,7 +21,6 @@ return {
     end,
   },
 
-  -- Copilot Chat
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "main",
