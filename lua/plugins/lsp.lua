@@ -309,7 +309,7 @@ return {
             { "<leader>cR", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
           },
           root_dir = function(fname)
-            local util = require("lspconfig. util")
+            local util = require("lspconfig.util")
             return util.root_pattern(
               "Makefile",
               "configure.ac",
@@ -348,7 +348,7 @@ return {
         -- Tailwind CSS
         tailwindcss = {
           root_dir = function(...)
-            return require("lspconfig.util").root_pattern(". git")(...)
+            return require("lspconfig.util").root_pattern(".git")(...)
           end,
         },
 
@@ -474,7 +474,7 @@ return {
     cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
     keys = {
       { "<leader>la", ":Laravel artisan<cr>", desc = "Laravel Artisan" },
-      { "<leader>lr", ":Laravel routes<cr>",  desc = "Laravel Routes" },
+      { "<leader>lr", ":Laravel routes<cr>", desc = "Laravel Routes" },
       { "<leader>lm", ":Laravel related<cr>", desc = "Laravel Related" },
     },
     event = { "BufRead **/*/app/**. php" },
