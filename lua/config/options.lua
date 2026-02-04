@@ -34,7 +34,7 @@ vim.opt.incsearch = true
 vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.textwidth = 0
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = ""
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
 vim.opt.scrolloff = 8
@@ -83,8 +83,8 @@ vim.opt.joinspaces = false
 
 -- Main diagnostic config
 vim.diagnostic.config({
-  virtual_text = false, -- Show inline errors
-  virtual_lines = true, -- Disable lsp_lines virtual lines
+  virtual_text = true, -- Show inline errors
+  virtual_lines = false, -- Disable lsp_lines virtual lines
   signs = true, -- Show error signs in gutter
   underline = true, -- Underline errors
   update_in_insert = true, -- Show errors while typing
