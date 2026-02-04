@@ -310,17 +310,25 @@ return {
           },
           root_dir = function(fname)
             local util = require("lspconfig.util")
-            return util.root_pattern(
+            local root = util.root_pattern(
               "Makefile",
               "configure.ac",
               "configure.in",
               "config.h.in",
               "meson.build",
               "meson_options.txt",
-              "build. ninja",
+              "build.ninja",
               "compile_commands.json",
-              "compile_flags. txt"
-            )(fname) or util.root_pattern(". git")(fname)
+              "compile_flags.txt",
+              ".git"
+            )(fname)
+
+            if root then
+              return root
+            end
+
+            -- Fallback to current file directory
+            return vim.fn.fnamemodify(fname, ":p:h")
           end,
           capabilities = {
             offsetEncoding = { "utf-16" },
@@ -477,7 +485,7 @@ return {
       { "<leader>lr", ":Laravel routes<cr>", desc = "Laravel Routes" },
       { "<leader>lm", ":Laravel related<cr>", desc = "Laravel Related" },
     },
-    event = { "BufRead **/*/app/**. php" },
+    event = { "BufRead **/*/app/*.php" },
     config = function()
       require("laravel").setup()
       require("telescope").load_extension("laravel")
