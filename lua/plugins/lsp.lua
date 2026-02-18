@@ -415,6 +415,12 @@ return {
               },
             },
           },
+          on_init = function(client)
+            local venv_path = vim.fn.getcwd() .. "/.venv/bin/python"
+            if vim.fn.executable(venv_path) == 1 then
+              client.config.settings.python.pythonPath = venv_path
+            end
+          end,
         },
 
         -- C#
