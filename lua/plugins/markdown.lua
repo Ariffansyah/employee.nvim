@@ -70,7 +70,7 @@ return {
     },
     config = function()
       require("glow").setup({
-        glow_path = vim.fn.exepath("glow"),               -- will be filled automatically if glow is in $PATH
+        glow_path = vim.fn.exepath("glow"), -- will be filled automatically if glow is in $PATH
         install_path = vim.fn.stdpath("data") .. "/glow", -- default path for installing glow binary
         border = "rounded",
         style = "dark",
