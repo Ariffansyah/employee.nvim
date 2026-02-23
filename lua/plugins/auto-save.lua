@@ -18,5 +18,12 @@ return {
       end
       return true
     end,
+    callbacks = {
+      before_saving = function(buf)
+        if vim.fn.exists(":ConformInfo") ~= 0 then
+          require("conform").format({ bufnr = buf, lsp_format = "fallback" })
+        end
+      end,
+    },
   },
 }
