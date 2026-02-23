@@ -21,6 +21,7 @@ return {
         "json-lsp",
         "lua-language-server",
         "marksman",
+        "biome",
         "omnisharp",
         "php-cs-fixer",
         "prettierd",
