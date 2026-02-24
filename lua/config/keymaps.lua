@@ -14,8 +14,6 @@ vim.keymap.set("n", "<leader>mp", function()
   require("conform").format({ async = true, lsp_format = "fallback" })
 end, { noremap = true, silent = true, desc = "Format buffer" })
 
-vim.keymap.set("n", "<leader>fd", function()
-  Snacks.dashboard.open()
-end, { desc = "Open Dashboard" })
-
-vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+vim.keymap.set("n", "<leader>fp", function()
+  Snacks.picker.projects()
+end, { desc = "Projects" })
