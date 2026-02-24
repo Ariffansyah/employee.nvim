@@ -13,3 +13,7 @@ vim.keymap.set("n", "<leader>nh", "<cmd>Noice history<cr>", { desc = "Show notif
 vim.keymap.set("n", "<leader>mp", function()
   require("conform").format({ async = true, lsp_format = "fallback" })
 end, { noremap = true, silent = true, desc = "Format buffer" })
+
+vim.keymap.set("n", "<leader>d", function()
+  Snacks.dashboard.open()
+end, { desc = "Open Dashboard" })
