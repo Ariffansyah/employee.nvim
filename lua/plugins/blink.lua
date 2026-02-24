@@ -2,9 +2,8 @@ return {
   "saghen/blink.cmp",
   opts = {
     keymap = {
-      preset = "default", -- 'default', 'super-tab', or 'enter'
+      preset = "default",
       ["<C-k>"] = { "select_prev", "fallback" },
-      ["<C-j>"] = { "select_next", "fallback" },
     },
     appearance = {
       use_nvim_cmp_as_default = true,
