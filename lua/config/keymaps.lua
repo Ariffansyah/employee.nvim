@@ -17,3 +17,5 @@ end, { noremap = true, silent = true, desc = "Format buffer" })
 vim.keymap.set("n", "<leader>d", function()
   Snacks.dashboard.open()
 end, { desc = "Open Dashboard" })
+
+vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
