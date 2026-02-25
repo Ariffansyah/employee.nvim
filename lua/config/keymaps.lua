@@ -17,3 +17,5 @@ end, { noremap = true, silent = true, desc = "Format buffer" })
 vim.keymap.set("n", "<leader>fp", function()
   Snacks.picker.projects()
 end, { desc = "Projects" })
+
+vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { desc = "LSP code action" })
