@@ -44,46 +44,46 @@ for i, color in ipairs(terminal_ansi_colors) do
   vim.g["terminal_color_" .. (i - 1)] = color
 end
 
--- Clear existing highlights
 vim.cmd("highlight clear")
 
--- Define all highlight groups - be VERY aggressive
 local highlights = {
   -- Base colors
   Normal = { bg = colors.base00, fg = colors.base05 },
   NormalFloat = { bg = colors.base00, fg = colors.base05 },
   FloatBorder = { fg = colors.base0C, bg = colors.base00 },
   CursorLine = { bg = "#252025" },
-  Visual = { bg = colors.base0D, fg = colors.base00 },
+  Visual = { bg = colors.base02, fg = colors.base05 }, -- High contrast selection
+
+  -- LSP Diagnostics (Contrast for warnings/errors)
+  DiagnosticError = { fg = "#ff5555", bold = true }, -- Vibrant red-pink
+  DiagnosticWarn = { fg = colors.base0A, bold = true }, -- Yellow/Gold
+  DiagnosticInfo = { fg = colors.base0C }, -- Magenta
+  DiagnosticHint = { fg = colors.base0D }, -- Light Pink
+  DiagnosticUnderlineError = { undercurl = true, sp = "#ff5555" },
+  DiagnosticUnderlineWarn = { undercurl = true, sp = colors.base0A },
+
+  -- Statusline / Bottom Bar (Separation from code)
+  StatusLine = { fg = colors.base05, bg = colors.base01 }, -- Light bg for contrast
+  StatusLineNC = { fg = colors.base03, bg = colors.base01 }, -- Inactive bar
+  MsgArea = { fg = colors.base05, bg = colors.base00 }, -- Command area contrast
+  ModeMsg = { fg = colors.base0B, bold = true }, -- "INSERT" / "NORMAL" text
 
   -- Neo-tree / Sidebars
   NeoTreeNormal = { bg = colors.base00 },
   NeoTreeNormalNC = { bg = colors.base00 },
 
-  -- Generic UI elements - make them all pink
+  -- Generic UI elements
   Directory = { fg = colors.base0C, bold = true },
   SpecialKey = { fg = colors.base0C },
   Title = { fg = colors.base0C, bold = true },
   Keyword = { fg = colors.base0B },
   Identifier = { fg = colors.base0C },
   Function = { fg = colors.base0C },
-
-  -- Catch-all for menu items
   Statement = { fg = colors.base0B },
   PreProc = { fg = colors.base0C },
   Operator = { fg = colors.base0E },
 
-  -- Dashboard variants
-  DashboardHeader = { fg = colors.base0C },
-  DashboardCenter = { fg = colors.base0C },
-  DashboardFooter = { fg = colors.base03 },
-  DashboardKey = { fg = colors.base0C },
-  DashboardDesc = { fg = colors.base0C },
-  DashboardIcon = { fg = colors.base0C },
-  DashboardShortCut = { fg = colors.base0C },
-  DashboardProjectTitle = { fg = colors.base0C },
-
-  -- Telescope - everything pink
+  -- Telescope
   TelescopeNormal = { fg = colors.base0C },
   TelescopeBorder = { fg = colors.base0C },
   TelescopePromptPrefix = { fg = colors.base0C },
@@ -91,10 +91,9 @@ local highlights = {
   TelescopePromptBorder = { fg = colors.base0C },
   TelescopeSelection = { fg = colors.base0C, bg = colors.base02, bold = true },
   TelescopeSelectionCaret = { fg = colors.base0C },
-  TelescopeMultiSelection = { fg = colors.base0C },
   TelescopeMatching = { fg = colors.base0C, bold = true },
 
-  -- LazyVim
+  -- LazyVim specific
   LazyH1 = { fg = colors.base0C, bold = true },
   LazyH2 = { fg = colors.base0C, bold = true },
   LazyButton = { fg = colors.base0C },
@@ -103,7 +102,6 @@ local highlights = {
 
   -- Scrollbar and UI elements
   Cursor = { bg = colors.base0C, fg = colors.base00 },
-  CursorIM = { bg = colors.base0C, fg = colors.base00 },
   TermCursorNC = { bg = colors.base0C },
 }
 
