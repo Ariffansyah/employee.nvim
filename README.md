@@ -365,6 +365,12 @@ Automatically adds closing brackets and quotes as you type:
 | `<leader>ql` | Load last session          |
 | `<leader>qd` | Don't save current session |
 
+### To-Do List
+
+| Key          | Action              |
+| ------------ | ------------------- |
+| `<leader>td` | Open dooing (to-do) |
+
 ## Customization
 
 To add your own keybindings, edit `lua/config/keymaps.lua`:
