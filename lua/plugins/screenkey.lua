@@ -3,18 +3,22 @@ return {
   lazy = false,
   version = "*",
   config = function()
+    local width = 40 -- Define width here so we can use it in the math below
+    local height = 3
+
     require("screenkey").setup({
       win_opts = {
         relative = "editor",
-        anchor = "SE", -- Anchors the window's Bottom-Right corner
-        width = 40, -- "Normal" width
-        height = 3, -- "Normal" height
-
-        -- Position Math:
-        row = vim.o.lines - 3, -- Total lines minus 3 (moves it up from the bottom)
-        col = vim.o.columns - 1, -- Total cols minus 1 (gives a tiny gap from right edge)
-
+        anchor = "SW", -- "South-West" (Bottom-Left corner of the popup)
+        width = width,
+        height = height,
         border = "rounded",
+
+        -- Vertical Position: Bottom (with a small gap for the status line)
+        row = vim.o.lines - 2,
+
+        -- Horizontal Position: Center
+        col = (vim.o.columns - width) / 2,
       },
     })
 
